@@ -1,0 +1,48 @@
+<!--html template inheritance ... about is layout's child-->
+{% extends "layout.html" %}
+{% block content %}
+    <h1>About the Tests:</h1>
+
+    <article class="media sidebar-section">
+      <div class="media-body">
+        <h2 class="article-title">PSAT -- For National Merit Scholarships</h2>
+        <div class="article-metadata">EBRW -- Reading and Writing</div>
+            <p class="article-content"> <b>Reading:</b> 47 Questions in 60 minutes
+                                        <b>Writing:</b> 44 Questions in 35 minutes
+            </p>
+        <div class="article-metadata">Math</div>
+            <p class="article-content"> <b>Non Calculator:</b> 17 Questions in 25 minutes
+                                        <b>Calculator:</b> 31 Questions in 45 minutes
+            </p>
+      </div>
+    </article>
+
+    <article class="media sidebar-section">
+      <div class="media-body">
+        <h2 class="article-title">SAT -- For College</h2>
+        <div class="article-metadata">EBRW -- Reading and Writing</div>
+            <p class="article-content"> <b>Reading:</b> 52 Questions in 65 minutes
+                                        <b>Writing:</b> 44 Questions in 35 minutes
+            </p>
+        <div class="article-metadata">Math</div>
+            <p class="article-content"> <b>Non Calculator:</b> 20 Questions in 25 minutes
+                                        <b>Calculator:</b> 38 Questions in 55 minutes
+            </p>
+      </div>
+    </article>
+
+    <article class="media sidebar-section">
+      <div class="media-body">
+        <h2 class="article-title">ACT -- For College</h2>
+        <div class="article-metadata">English Grammar</div>
+            <p class="article-content"> 75 Questions in 45 minutes <br> </p>
+        <div class="article-metadata">Math</div>
+            <p class="article-content"> 60 Questions in 60 minutes <br> </p>
+        <div class="article-metadata">Reading Comprehension</div>
+            <p class="article-content"> 40 Questions in 35 minutes <br> </p>
+        <div class="article-metadata">Science</div>
+            <p class="article-content"> 40 Questions in 35 minutes <br> </p>
+      </div>
+    </article>
+
+{% endblock content %}

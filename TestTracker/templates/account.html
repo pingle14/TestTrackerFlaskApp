@@ -1,0 +1,77 @@
+<!--html template inheritance ... account is layout's child-->
+{% extends "layout.html" %}
+{% block content %}
+    <div class="sidebar-section">
+      <div class="media">
+        <div class="media-body">
+          <h2 class="account-heading"><p style="text-align:center;">{{ current_user.username }}</p></h2>
+          <p class="text-secondary" style="text-align:center;">{{ current_user.email }}</p>
+        </div>
+      </div>
+
+      <!-- FORM HERE -->
+      <div class="sidebar-section">
+          <form method='POST' action=""> <!--rn POST info we type in to the same route we r on-->
+              {{ form.hidden_tag() }} <!--hidden_tag adds a CSRF token .. a cross ref site token .. added protections-->
+              <fieldset class="form-group">
+                  <legend class='border-bottom mb-4'>Account Information</legend>
+                  <div class="form-group">
+                      {{ form.username.label(class="form-control-label") }}:
+                      {% if form.username.errors %}
+                          {{ form.username(class="form-control form-control-lg is-invalid") }}
+                          <div class="invalid-feedback">
+                              {% for error in form.username.errors %}
+                                  <span>{{ error }}</span>
+                              {% endfor %}
+                          </div>
+                      {% else %}
+                          {{ form.username(class="form-control form-control-lg") }}
+                      {% endif %}
+                  </div>
+                  <div class="form-group">
+                      {{ form.email.label(class="form-control-label") }}:
+                      {% if form.email.errors %}
+                          {{ form.email(class="form-control form-control-lg is-invalid") }}
+                          <div class="invalid-feedback">
+                              {% for error in form.email.errors %}
+                                  <span>{{ error }}</span>
+                              {% endfor %}
+                          </div>
+                      {% else %}
+                          {{ form.email(class="form-control form-control-lg") }}
+                      {% endif %}
+                  </div>
+              </fieldset>
+              <div class="form-group">
+                  {{ form.submit(class='btn btn-outline-warning btn-lg btn-block') }}
+              </div>
+          </form>
+          <!-- Delete Account Modal-->
+            <button type="button" class="btn btn-outline-danger btn-lg btn-block" data-toggle="modal" data-target="#deleteAcctModal">Delete</button>
+            <!-- Button trigger modal -->
+
+            <!-- Modal -->
+            <div class="modal fade" id="deleteAcctModal" tabindex="-1" role="dialog" aria-labelledby="deleteAcctModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="deleteAcctModalLabel">Confirmation: Delete Account?</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+
+                      <div class="modal-body">Warning: Doing so will delete all your tests.</div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <form action="{{ url_for('users.delete_account', user_id=current_user.id) }}" method="POST">
+                            <input class="btn btn-danger" type="submit" value="Delete">
+                        </form>
+                      </div>
+                </div>
+              </div>
+            </div>
+            
+        </div>
+    </div>
+{% endblock content %}

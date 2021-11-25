@@ -1,0 +1,41 @@
+<!--html template inheritance ... create_test is layout's child-->
+{% extends "layout.html" %}
+{% block content %}
+    <div class="content-section">
+        <form method='POST' action=""> <!--rn POST info we type in to the same route we r on-->
+            {{ form.hidden_tag() }} <!--hidden_tag adds a CSRF token .. a cross ref site token .. added protections-->
+            <fieldset class="form-group">
+                <legend class='border-bottom mb-4'>{{ legend }}</legend>
+                <div class="form-group">
+                    {{ form.ebrw.label(class="form-control-label") }}:
+                    {% if form.ebrw.errors %}
+                        {{ form.ebrw(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.ebrw.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.ebrw(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    {{ form.math.label(class="form-control-label") }}:
+                    {% if form.math.errors %}
+                        {{ form.math(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.math.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.math(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+            </fieldset>
+            <div class="form-group">
+                {{ form.submit(class='btn btn-outline-secondary btn-lg btn-block') }}
+            </div>
+        </form>
+    </div>
+{% endblock content %}

@@ -1,0 +1,49 @@
+<!--html template inheritance ... login is layout's child-->
+{% extends "layout.html" %}
+{% block content %}
+    <div class="content-section">
+        <form method='POST' action=""> <!--rn POST info we type in to the same route we r on-->
+            {{ form.hidden_tag() }} <!--hidden_tag adds a CSRF token .. a cross ref site token .. added protections-->
+            <fieldset class="form-group">
+                <legend class='border-bottom mb-4'>Login</legend>
+                <div class="form-group">
+                    {{ form.email.label(class="form-control-label") }}:
+                    {% if form.email.errors %}
+                        {{ form.email(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.email.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.email(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    {{ form.password.label(class="form-control-label") }}:
+                    {% if form.password.errors %}
+                        {{ form.password(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.password.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.password(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+                <div class="form-check">
+                    {{ form.remember(class='form-check-input') }}
+                    {{ form.remember.label(class='form-check-label') }}
+                </div>
+            </fieldset>
+            <div class="form-group">
+                {{ form.submit(class='btn btn-outline-secondary btn-lg btn-block') }}
+            </div>
+        </form>
+    </div>
+    <div class="ml-2">
+        <small class="text-muted">Do you need an account? <a class="m1-2" href="{{ url_for('users.register') }}"}>Sign up here!</a>
+        </small>
+    </div>
+{% endblock content %}

@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+{% block content %}
+    <h1 class="mb-3">Visualize {{ type.upper() }} Progress!</h1>
+
+    <!-- Display Graph -->
+    <h5 class="mb-2 ml-2"><i>Progress Graph</i></h5>
+    <div class="sidebar-section">
+        <div class="graph-section">{{ plot|safe }}</div>
+    </div>
+
+    <!-- Display Table -->
+    {% if table %}
+    <h5 class="mb-2 ml-2"><i>Filtered Table</i></h5>
+    <div class="sidebar-section">
+        <div class="sidebar-section">{{ table|safe }}</div>
+    </div>
+
+    <div class="sidebar-section">
+        <div class="sidebar-section">
+            <a class="btn btn-outline-info btn-lg btn-block" role="button" aria-pressed="true" href="{{ url_for('tests.download_report',user_id=current_user.id,type=type) }}">
+                Download Report
+            </a>
+        </div>
+    </div>
+    {% endif %}
+{% endblock %}

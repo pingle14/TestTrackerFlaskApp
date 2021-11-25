@@ -1,0 +1,121 @@
+body {
+  background: #e0e0eb;
+  color: #8585ad;
+  margin-top: 5rem;
+}
+h1, h2, h3, h4, h5, h6 {
+  color: #3d3d5c;
+}
+.bg-steel {
+  background-color: #3d3d5c;
+}
+.site-header .navbar-nav .nav-link {
+  color: #f0f0f5;
+}
+.site-header .navbar-nav .nav-link:hover {
+  color: #ffffff;
+}
+.site-header .navbar-nav .nav-link.active {
+  font-weight: 500;
+}
+.content-section {
+  background-color: rgba(255,255,255,0.7);
+  padding: 10px 20px;
+  border-style: hidden;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+.content-section:hover{
+  background-color: #f0f0f5;
+  opacity: 0.9;
+  border:2px solid #33334d;
+}
+.sidebar-section {
+  background-color: rgba(255,255,255,0.7);
+  padding: 10px 20px;
+  border-style: hidden;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+.graph-section {
+  background-color: rgba(255,255,255,0.7);
+  padding: 20px 5px 10px 20px;
+  border-style: hidden;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+.article-title {
+  color: #666699;
+}
+a.article-title:hover {
+  color: purple;
+  text-decoration: underline;
+}
+.article-author{
+  color:#b3b3cc;
+}
+a.article-author:hover{
+  color: purple;
+  text-decoration:underline;
+}
+.nav-link{
+    color: #666699;
+}
+a.nav-link:hover{
+    color: purple;
+    text-decoration:underline;
+}
+.article-content {
+  white-space: pre-line;
+}
+.article-img {
+  height: 65px;
+  width: 100px;
+  margin-right: 16px;
+  border-radius: 8px;
+}
+.article-metadata {
+  padding-bottom: 1px;
+  margin-bottom: 4px;
+  border-bottom: 1px solid grey;
+  color: purple;
+}
+.article-metadata a:hover {
+  color: purple;
+  text-decoration: underline;
+}
+.article-svg {
+  width: 25px;
+  height: 25px;
+  vertical-align: middle;
+}
+.account-img {
+  height: 125px;
+  width: 125px;
+  margin-right: 20px;
+  margin-bottom: 16px;
+}
+.account-heading {
+  font-size: 2.5rem;
+}
+table.dataframe, .dataframe th, .dataframe td {
+    width:100%;
+    border: none;
+    border-bottom: 1px solid #C8C8C8;
+    border-collapse: collapse;
+    text-align:center;
+    padding: 8px;
+    font-size: 0.85em;
+    table-layout: fixed;
+    /* width: 25%; */
+}
+.dataframe th {
+    background-color: #666699;
+    color: white;
+}
+tr{
+    width: 100%;
+}
+tr:nth-child(odd)		{ background-color:#eee; }
+tr:nth-child(even)	{ background-color:#fff; }
+/* tr:hover            { background-color: #ffff99;} */
